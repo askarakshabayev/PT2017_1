@@ -8,14 +8,34 @@ namespace HelloWorld
 {
     class Program
     {
-        /// <summary>
-        /// Main function
-        /// </summary>
-        /// <param name="args"> arguments </param>
+        class Complex
+        {
+            public int a, b;
+
+            public Complex(int a, int b)
+            {
+                this.a = a;
+                this.b = b;
+            }
+
+            public Complex add(Complex c)
+            {
+                Complex p = new Complex(this.a + c.a, this.b + c.b);
+                return p;
+            }
+
+            public void Write()
+            {
+                Console.WriteLine(this.a + "/" + this.b);
+            }
+        }
+
         static void Main(string[] args)
         {
-            string[] s = Console.ReadLine().Split();
-            Console.WriteLine(int.Parse(s[0]) + int.Parse(s[1]));
+            Complex a = new Complex(1, 2);
+            Complex b = new Complex(1, 3);
+            Complex c = a.add(b);
+            c.Write();
             Console.ReadKey();    
         }
     }
